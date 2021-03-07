@@ -17,18 +17,38 @@ class App extends Component {
     };
   }
 
+  componentDidMount(){
+    this.refreshList();
+  }
+
+  refreshList = () => {
+    axios
+      .get("api/todos/")
+      .then((res)=> this.setState({todoList: res.data}))
+      .catch((err)=> console.log(err));
+  }
+
   toggle = () => {
     this.setState({ modal: !this.state.modal });
   };
 
   handleSubmit = (item) => {
     this.toggle();
-
-    alert("save" + JSON.stringify(item));
+    if (item.id){
+      axios
+        .put(`/api/todos/${item.id}/`, item)
+        .then((res) => this.refreshList());
+      return;
+    }
+    axios
+      .post("/api/todos/", item)
+      .then((res) => this.refreshList());
   };
 
   handleDelete = (item) => {
-    alert("delete" + JSON.stringify(item));
+    axios
+      .delete(`/api/todos/${item.id}/`)
+      .then((res) => this.refreshList());
   };
 
   createItem = () => {
