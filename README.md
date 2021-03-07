@@ -1,5 +1,7 @@
 # Django React Todo
- Example project from -> https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
+ Cool CRUD Example project from -> https://www.digitalocean.com/community/tutorials/build-a-to-do-application-using-django-and-react
+
+![thingey-under30](https://user-images.githubusercontent.com/7981120/110251135-1f57f700-7f4d-11eb-98f2-333bcd29b0aa.gif)
 
 - 'pipenv shell' will activate a vitrual enviroment from your working powershell directory
 - 'django-admin startproject backend' - creates the backend project -> cd backend
